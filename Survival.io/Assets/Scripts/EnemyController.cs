@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed, turnSpeed;
+    [SerializeField] private Animator enemyAnimator;
     [SerializeField] private Rigidbody rb;
 
     private GameObject playerGameObject;
@@ -40,16 +41,39 @@ public class EnemyController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            enemyAttack();
             Debug.Log("Trigger");
-            EventManager.enemyAttackAnimation.Invoke();
+            // EventManager.enemyAttackAnimation.Invoke();
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Trigger finish.");
         if (other.gameObject.tag == "Player")
         {
-            EventManager.enemyMovementAnimation.Invoke();
+            enemyMovement();
+            Debug.Log("Trigger finish.");
+            // EventManager.enemyMovementAnimation.Invoke();
         }
+    }
+
+    /*private void OnEnable()
+    {
+        EventManager.enemyMovementAnimation.AddListener(enemyMovement);
+        EventManager.enemyAttackAnimation.AddListener(enemyAttack);
+
+    }
+    private void OnDisable()
+    {
+        EventManager.enemyMovementAnimation.RemoveListener(enemyMovement);
+        EventManager.enemyAttackAnimation.RemoveListener(enemyAttack);
+    }*/
+
+    private void enemyAttack()
+    {
+        enemyAnimator.SetBool("isAttack", true);
+    }
+    private void enemyMovement()
+    {
+        enemyAnimator.SetBool("isAttack", false);
     }
 }
