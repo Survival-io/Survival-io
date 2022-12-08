@@ -929,6 +929,7 @@ GameObject:
   - component: {fileID: 1891995742340119000}
   - component: {fileID: 7848673006327524618}
   - component: {fileID: 7848673006327524617}
+  - component: {fileID: 5505271072001229992}
   - component: {fileID: 7848673006327524616}
   m_Layer: 0
   m_Name: CatCharacter
@@ -1001,6 +1002,20 @@ CapsuleCollider:
   m_GameObject: {fileID: 5182029510642923800}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.48
+  m_Height: 2.17
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.09, z: 0}
+--- !u!136 &5505271072001229992
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5182029510642923800}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2.17
