@@ -29,34 +29,7 @@ public class EnemyController : MonoBehaviour
         moveEnemy();
     }
 
-    private void moveEnemy(/*Vector3 direction*/)   // Enemy straight move by rotation 
-    {
-        // rb.MovePosition(transform.position + (direction * moveSpeed * Time.deltaTime));
-        rb.MovePosition(transform.position + (transform.forward * moveSpeed * Time.deltaTime));
-    }
-
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            enemyAttack();
-            Debug.Log("Trigger");
-            // EventManager.enemyAttackAnimation.Invoke();
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            enemyMovement();
-            Debug.Log("Trigger finish.");
-            // EventManager.enemyMovementAnimation.Invoke();
-        }
-    }
-
-    /*private void OnEnable()
+    private void OnEnable()
     {
         EventManager.enemyMovementAnimation.AddListener(enemyMovement);
         EventManager.enemyAttackAnimation.AddListener(enemyAttack);
@@ -66,7 +39,12 @@ public class EnemyController : MonoBehaviour
     {
         EventManager.enemyMovementAnimation.RemoveListener(enemyMovement);
         EventManager.enemyAttackAnimation.RemoveListener(enemyAttack);
-    }*/
+    }
+
+    private void moveEnemy(/*Vector3 direction*/)   // Enemy straight move by rotation 
+    {
+        rb.MovePosition(transform.position + (transform.forward * moveSpeed * Time.deltaTime));
+    }
 
     private void enemyAttack()
     {

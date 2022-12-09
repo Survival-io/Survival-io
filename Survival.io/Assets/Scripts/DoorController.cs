@@ -19,11 +19,11 @@ public class DoorController : MonoBehaviour
         EventManager.doorClosing.RemoveListener(moveDown);
     }
 
-    private void moveUp(int id)
+    private void moveUp()
     {
         transform.DOLocalMoveY(4.3f, .5f).SetEase(Ease.OutQuad);
     }
-    private void moveDown(int id)
+    private void moveDown()
     {
         transform.DOLocalMoveY(1.4f, .5f).SetEase(Ease.InQuad);
     }
